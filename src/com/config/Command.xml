@@ -7,18 +7,18 @@
 <!-- resultMap中的column名，并不是表的列名，而应是查询语句中的返回结果的列名，若有别名，应为别名 -->
   <resultMap type="com.bean.Command" id="Command">
     <id column="C_ID" jdbcType="INTEGER" property="id"/>
-    <result column="NAME" jdbcType="VARCHAR" property="name"/>
+    <result column="COMMAND_NAME" jdbcType="VARCHAR" property="commandName"/>
     <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
     <collection property="contentList"  resultMap="CommandContent.Content"/>
   </resultMap>
   
   <select id="queryCommandList" parameterType="com.bean.Command" resultMap="Command">
-    select a.ID C_ID,a.NAME,a.DESCRIPTION,b.ID,b.CONTENT,b.COMMAND_ID
+    select a.ID C_ID,a.COMMAND_NAME,a.DESCRIPTION,b.ID,b.CONTENT,b.COMMAND_ID
     from COMMAND a left join COMMAND_CONTENT b
     on a.ID=b.COMMAND_ID
     <where>
-    	<if test="name != null and !&quot;&quot;.equals(name.trim())">
-	    	and a.NAME=#{name}
+    	<if test="commandName != null and !&quot;&quot;.equals(commandName.trim())">
+	    	and a.COMMAND_NAME=#{commandName}
 	    </if>
 	    <if test="description != null and !&quot;&quot;.equals(description.trim())">
 	    	and a.DESCRIPTION like '%' #{description} '%'

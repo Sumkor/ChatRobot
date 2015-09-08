@@ -38,7 +38,7 @@
       </transactionManager>
       <dataSource type="UNPOOLED">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/chatrobot"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/chatrobot?useUnicode=true&amp;characterEncoding=utf8"/>
         <property name="username" value="root"/>
         <property name="password" value="admin"/>
       </dataSource>
@@ -47,6 +47,8 @@
  
   <mappers>
     <mapper resource="com/config/Message.xml"/>
+    <mapper resource="com/config/Command.xml"/>
+    <mapper resource="com/config/CommandContent.xml"/>
   </mappers>
 
 </configuration>

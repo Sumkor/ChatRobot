@@ -7,21 +7,20 @@ import java.util.List;
  */
 public class Command {
 	private String id;//主键
-	private String name;//指令名称
+	private String commandName;//指令名称
 	private String description;//描述
 	private List<CommandContent> contentList;//一条指令对应的自动回复内容列表
-	
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getCommandName() {
+		return commandName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setCommandName(String commandName) {
+		this.commandName = commandName;
 	}
 	public String getDescription() {
 		return description;
@@ -35,4 +34,5 @@ public class Command {
 	public void setContentList(List<CommandContent> contentList) {
 		this.contentList = contentList;
 	}
+	
 }
