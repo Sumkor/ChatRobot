@@ -4,7 +4,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Message">
+<mapper namespace="com.dao.IMessage">
 
   <!-- 配置数据库字段与JavaBean属性值对应关系 -->
   <resultMap type="com.bean.Message" id="MessageResult">
@@ -15,16 +15,29 @@
   </resultMap>
 
   <!-- parameterType用于传参，如果只有一个参数可写成="String" -->
-  <select id="queryMessageList" parameterType="com.bean.Message" resultMap="MessageResult">
+  <select id="queryMessageList" parameterType="java.util.Map" resultMap="MessageResult">
     select ID,COMMAND,DESCRIPTION,CONTENT from MESSAGE
     <where>
-    	<if test="command != null and !&quot;&quot;.equals(command.trim())">
+    	<if test="message.command != null and !&quot;&quot;.equals(message.command.trim())">
+	    	and COMMAND=#{message.command}
+	    </if>
+	    <if test="message.description != null and !&quot;&quot;.equals(message.description.trim())">
+	    	and DESCRIPTION like '%' #{message.description} '%'
+	    </if>
+    </where>
+    order by ID limit #{page.dbIndex},#{page.dbNumber}
+  </select>
+  
+  <select id="count" parameterType="com.bean.Message" resultType="int">
+  	select count(*) from MESSAGE
+  	<where>
+  		<if test="command != null and !&quot;&quot;.equals(command.trim())">
 	    	and COMMAND=#{command}
 	    </if>
 	    <if test="description != null and !&quot;&quot;.equals(description.trim())">
 	    	and DESCRIPTION like '%' #{description} '%'
 	    </if>
-    </where>
+  	</where>
   </select>
 
   <delete id="deleteOne" parameterType="int">

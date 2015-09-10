@@ -1,5 +1,5 @@
 /**
- * è°ƒç”¨åå°æ‰¹é‡åˆ é™¤æ–¹æ³•
+ * µ÷ÓÃºóÌ¨ÅúÁ¿É¾³ı·½·¨
  */
 function deleteBatch(basePath) {
 	$("#mainForm").attr("action",basePath + "DeleteBatchServlet.action");
@@ -7,7 +7,7 @@ function deleteBatch(basePath) {
 }
 
 /**
- * ä¿®æ”¹å½“å‰é¡µç ï¼Œè°ƒç”¨åå°é‡æ–°æŸ¥è¯¢
+ * ĞŞ¸Äµ±Ç°Ò³Âë£¬µ÷ÓÃºóÌ¨ÖØĞÂ²éÑ¯
  */
 function changeCurrentPage(currentPage) {
 	$("#currentPage").val(currentPage);
