@@ -71,6 +71,7 @@ public class MessageDao {
 		}
 		return result;
 	}
+	
 
 	/**
 	 * 单条删除
@@ -105,6 +106,32 @@ public class MessageDao {
 			sqlSession = dbAccess.getSqlSession();
 			// 通过sqlSession执行SQL语句
 			sqlSession.delete("Message.deleteBatch", ids);
+			sqlSession.commit();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+	}
+	
+	/**
+	 * 单条插入
+	 * @param message
+	 */
+	public void insertOne(Message message){
+		DBAccess dbAccess = new DBAccess();
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = dbAccess.getSqlSession();
+			
+//			// 通过sqlSession执行SQL语句
+//			sqlSession.insert("Message.insertOne", message);
+			IMessage imessage = sqlSession.getMapper(IMessage.class);
+			imessage.insertOne(message);
+			
+			// mybatis有事务控制能力，不会自动提交，所以对于增删改 需要手动提交
 			sqlSession.commit();
 		} catch (IOException e) {
 			e.printStackTrace();

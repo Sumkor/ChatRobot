@@ -51,5 +51,9 @@
   		</foreach>
   	)
   </delete>
+  
+  <insert id="insertOne" useGeneratedKeys="true" keyProperty="id" parameterType="com.bean.Message">
+  	insert into MESSAGE(COMMAND,DESCRIPTION,CONTENT) value(#{command},#{description},#{content});
+  </insert>
 
 </mapper>

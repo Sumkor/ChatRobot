@@ -33,5 +33,15 @@ public class MessageDaoTest {
 					+" "+mes.getDescription());
 		}
 	}
+	
+	@Test
+	public void testInsertOne(){
+		MessageDao messageDao = new MessageDao();
+		Message message = new Message();
+		message.setCommand("条目1");
+		message.setDescription("条目1描述");
+		message.setContent("条目1内容内容内容内容内容内容内容内容内容内容内容");
+		messageDao.insertOne(message);
+	}
 
 }

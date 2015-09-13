@@ -7,9 +7,16 @@ function deleteBatch(basePath) {
 }
 
 /**
- * 修改当前页码，调用后台重新查询
+ * 修改当前页码，调用后台重新查询，实现页面跳转
  */
 function changeCurrentPage(currentPage) {
 	$("#currentPage").val(currentPage);
 	$("#mainForm").submit();
+}
+
+/**
+ * 跳转至新增记录页面
+ */
+function redirect(basePath) {
+	window.location.href = basePath+"InitAddServlet.action";
 }

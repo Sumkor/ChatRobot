@@ -3,6 +3,7 @@ package com.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bean.Message;
 import com.dao.MessageDao;
 
 /**
@@ -12,16 +13,38 @@ import com.dao.MessageDao;
 public class MaintainService {
 	public void deleteOne(String id){
 		if(id!=null && !"".equals(id.trim())){
-			MessageDao message = new MessageDao();
-			message.deleteOne(Integer.valueOf(id));
+			MessageDao messageDao = new MessageDao();
+			messageDao.deleteOne(Integer.valueOf(id));
 		}
 	}
 	public void deleteBatch(String[] ids){
-		MessageDao message = new MessageDao();
+		MessageDao messageDao = new MessageDao();
 		List<Integer> idList = new ArrayList<Integer>();
 		for(String id:ids){
 			idList.add(Integer.valueOf(id));
 		}
-		message.deleteBatch(idList);
+		messageDao.deleteBatch(idList);
+	}
+	/**
+	 * ≤Â»Îµ•Ãı
+	 * @param command
+	 * @param description
+	 * @param content
+	 */
+	public void insertOne(String command,String description,String content){
+		MessageDao messageDao = new MessageDao();
+		Message message = new Message();
+//		if(command!=null && !"".equals(command.trim())
+//				&& description!=null && !"".equals(description.trim()) 
+//				&& content!=null && !"".equals(content.trim())){
+//			message.setCommand(command);
+//			message.setDescription(description);
+//			message.setContent(content);
+//			messageDao.insertOne(message);
+//		}
+		message.setCommand(command);
+		message.setDescription(description);
+		message.setContent(content);
+		messageDao.insertOne(message);
 	}
 }

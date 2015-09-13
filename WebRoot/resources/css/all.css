@@ -162,6 +162,7 @@ input, select, teatarea { font:12px Arial, Helvetica, sans-serif; }
 .g_title .btn10:hover { text-decoration:none;}
 .g_title .btn11:hover { text-decoration:none;}
 .textareaI { width:300px; height:100px; border:1px solid #ccc;}
+.textareaII { font:12px Arial, Helvetica, sans-serif; }
 .k_title2 { font-size:14px; color:#6e6e6e; font-weight:700; margin:10px 0;}
 .tab3 .radioIn { margin:0;}
 .tab3texa { width:400px; height:200px; border:1px solid #ccc;}

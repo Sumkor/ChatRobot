@@ -55,4 +55,24 @@
   	<url-pattern>/AutoReplyServlet.action</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>InitAddServlet</servlet-name>
+  	<servlet-class>com.servlet.InitAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InitAddServlet</servlet-name>
+  	<url-pattern>/InitAddServlet.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>InsertOneServlet</servlet-name>
+  	<servlet-class>com.servlet.InsertOneServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InsertOneServlet</servlet-name>
+  	<url-pattern>/InsertOneServlet.action</url-pattern>
+  </servlet-mapping>
+  
+  
+  
 </web-app>
