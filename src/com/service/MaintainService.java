@@ -11,6 +11,10 @@ import com.dao.MessageDao;
  * 维护相关的业务功能
  */
 public class MaintainService {
+	/**
+	 * 删除
+	 * @param id
+	 */
 	public void deleteOne(String id){
 		if(id!=null && !"".equals(id.trim())){
 			MessageDao messageDao = new MessageDao();
@@ -34,14 +38,6 @@ public class MaintainService {
 	public void insertOne(String command,String description,String content){
 		MessageDao messageDao = new MessageDao();
 		Message message = new Message();
-//		if(command!=null && !"".equals(command.trim())
-//				&& description!=null && !"".equals(description.trim()) 
-//				&& content!=null && !"".equals(content.trim())){
-//			message.setCommand(command);
-//			message.setDescription(description);
-//			message.setContent(content);
-//			messageDao.insertOne(message);
-//		}
 		message.setCommand(command);
 		message.setDescription(description);
 		message.setContent(content);

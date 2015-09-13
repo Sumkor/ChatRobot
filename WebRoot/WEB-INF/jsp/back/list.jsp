@@ -17,6 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<body style="background: #e1e9eb;">
 		<form action="<%=basePath%>List.action" id="mainForm" method="post">
 			<input type="hidden" name="currentPage" id="currentPage" value="${page.currentPage}"/>
+			<input type="hidden" name="totalPage" id="totalPage" value="${page.totalPage}"/>
 			
 			<div class="right">
 				<div class="current">当前位置：<a href="javascript:void(0)" style="color:#6E6E6E;">内容管理</a> &gt; 内容列表</div>

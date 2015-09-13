@@ -82,8 +82,12 @@ public class MessageDao {
 		SqlSession sqlSession = null;
 		try {
 			sqlSession = dbAccess.getSqlSession();
-			// 通过sqlSession执行SQL语句
-			sqlSession.delete("Message.deleteOne", id);
+			
+//			// 通过sqlSession执行SQL语句
+//			sqlSession.delete("Message.deleteOne", id);		
+			IMessage imessage = sqlSession.getMapper(IMessage.class);
+			imessage.deleteOne(id);
+			
 			// mybatis有事务控制能力，不会自动提交，所以对于增删改 需要手动提交
 			sqlSession.commit();
 		} catch (IOException e) {
@@ -104,8 +108,9 @@ public class MessageDao {
 		SqlSession sqlSession = null;
 		try {
 			sqlSession = dbAccess.getSqlSession();
-			// 通过sqlSession执行SQL语句
-			sqlSession.delete("Message.deleteBatch", ids);
+			IMessage imessage = sqlSession.getMapper(IMessage.class);
+			imessage.deleteBatch(ids);
+			// mybatis有事务控制能力，不会自动提交，所以对于增删改 需要手动提交
 			sqlSession.commit();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -125,13 +130,8 @@ public class MessageDao {
 		SqlSession sqlSession = null;
 		try {
 			sqlSession = dbAccess.getSqlSession();
-			
-//			// 通过sqlSession执行SQL语句
-//			sqlSession.insert("Message.insertOne", message);
 			IMessage imessage = sqlSession.getMapper(IMessage.class);
 			imessage.insertOne(message);
-			
-			// mybatis有事务控制能力，不会自动提交，所以对于增删改 需要手动提交
 			sqlSession.commit();
 		} catch (IOException e) {
 			e.printStackTrace();
