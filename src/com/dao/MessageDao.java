@@ -48,6 +48,31 @@ public class MessageDao {
 		}
 		return messageList;
 	}
+	
+	/**
+	 * 根据id查询消息列表，无需传入Page
+	 * @param message
+	 * @return
+	 */
+	public Message queryMesById(int id) {
+		DBAccess dbAccess = new DBAccess();
+		Message message = new Message();
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = dbAccess.getSqlSession();
+
+			IMessage imessage = sqlSession.getMapper(IMessage.class);
+			message = imessage.queryMesById(id);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return message;
+	}
 
 	/**
 	 * 查询条数
@@ -132,6 +157,27 @@ public class MessageDao {
 			sqlSession = dbAccess.getSqlSession();
 			IMessage imessage = sqlSession.getMapper(IMessage.class);
 			imessage.insertOne(message);
+			sqlSession.commit();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+	}
+
+	/**
+	 * 单条修改
+	 * @param message
+	 */
+	public void updateOne(Message message) {
+		DBAccess dbAccess = new DBAccess();
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = dbAccess.getSqlSession();
+			IMessage imessage = sqlSession.getMapper(IMessage.class);
+			imessage.updateOne(message);
 			sqlSession.commit();
 		} catch (IOException e) {
 			e.printStackTrace();

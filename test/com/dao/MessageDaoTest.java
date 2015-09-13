@@ -43,5 +43,24 @@ public class MessageDaoTest {
 		message.setContent("条目1内容内容内容内容内容内容内容内容内容内容内容");
 		messageDao.insertOne(message);
 	}
-
+	
+	@Test
+	public void testQueryMesById() {
+		MessageDao messageDao = new MessageDao();
+		Message message = new Message();
+		message = messageDao.queryMesById(5);
+		System.out.println(message.getId()+" "+message.getCommand() +" "+message.getDescription());
+	}
+	
+	@Test
+	public void testUpdateOne() {
+		MessageDao messageDao = new MessageDao();
+		Message message = new Message();
+		message.setId("12");
+		message.setCommand("条目5");
+		message.setDescription("条目5修改");
+		message.setContent("条目5修改修改修改修改修改修改修改修改修改修改");
+		messageDao.updateOne(message);
+		System.out.println(message.getId()+" "+message.getCommand() +" "+message.getDescription());
+	}
 }

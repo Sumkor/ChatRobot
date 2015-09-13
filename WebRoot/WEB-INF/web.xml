@@ -38,24 +38,6 @@
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>InitTalkServlet</servlet-name>
-  	<servlet-class>com.servlet.InitTalkServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>InitTalkServlet</servlet-name>
-  	<url-pattern>/InitTalkServlet.action</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>AutoReplyServlet</servlet-name>
-  	<servlet-class>com.servlet.AutoReplyServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>AutoReplyServlet</servlet-name>
-  	<url-pattern>/AutoReplyServlet.action</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
   	<servlet-name>InitAddServlet</servlet-name>
   	<servlet-class>com.servlet.InitAddServlet</servlet-class>
   </servlet>
@@ -71,6 +53,44 @@
   <servlet-mapping>
   	<servlet-name>InsertOneServlet</servlet-name>
   	<url-pattern>/InsertOneServlet.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>InitUpdateServlet</servlet-name>
+  	<servlet-class>com.servlet.InitUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InitUpdateServlet</servlet-name>
+  	<url-pattern>/InitUpdateServlet.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UpdateServlet</servlet-name>
+  	<servlet-class>com.servlet.UpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateServlet</servlet-name>
+  	<url-pattern>/UpdateServlet.action</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+  	<servlet-name>InitTalkServlet</servlet-name>
+  	<servlet-class>com.servlet.InitTalkServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InitTalkServlet</servlet-name>
+  	<url-pattern>/InitTalkServlet.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AutoReplyServlet</servlet-name>
+  	<servlet-class>com.servlet.AutoReplyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AutoReplyServlet</servlet-name>
+  	<url-pattern>/AutoReplyServlet.action</url-pattern>
   </servlet-mapping>
   
   

@@ -43,4 +43,28 @@ public class MaintainService {
 		message.setContent(content);
 		messageDao.insertOne(message);
 	}
+	/**
+	 * 根据id查询
+	 * @param id
+	 * @return
+	 */
+	public Message queryMesById(String id){
+		MessageDao messageDao = new MessageDao();
+		return messageDao.queryMesById(Integer.valueOf(id));
+	}
+	/**
+	 * 修改单条
+	 * @param command
+	 * @param description
+	 * @param content
+	 */
+	public void updateOne(String id, String command,String description,String content){
+		MessageDao messageDao = new MessageDao();
+		Message message = new Message();
+		message.setId(id);
+		message.setCommand(command);
+		message.setDescription(description);
+		message.setContent(content);
+		messageDao.updateOne(message);
+	}
 }

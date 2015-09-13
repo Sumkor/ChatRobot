@@ -10,7 +10,7 @@ function deleteBatch(basePath) {
  * 修改当前页码，调用后台重新查询，实现页面跳转
  */
 function changeCurrentPage(currentPage) {
-	$("#currentPage").val(currentPage);
+	$("#currentPage").val(currentPage);//hidden
 	$("#mainForm").submit();
 }
 

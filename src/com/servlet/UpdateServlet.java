@@ -15,7 +15,7 @@ import com.util.TokenCheck;
  * 单条记录插入
  */
 @SuppressWarnings("serial")
-public class InsertOneServlet extends HttpServlet{
+public class UpdateServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -30,13 +30,14 @@ public class InsertOneServlet extends HttpServlet{
         }
         //移除session中的token
         req.getSession().removeAttribute("token");
-        System.out.println("处理用户提交请求！！");
+        System.out.println("处理用户提交请求");
 	
+        String id = req.getParameter("id");
 		String command = req.getParameter("command");
 		String description = req.getParameter("description");
 		String content = req.getParameter("content");
 		MaintainService maintainService = new MaintainService();
-		maintainService.insertOne(command, description, content);
+		maintainService.updateOne(id,command, description, content);
 		// 向页面跳转
 		req.getRequestDispatcher("/List.action").forward(req, resp);
 	}	
